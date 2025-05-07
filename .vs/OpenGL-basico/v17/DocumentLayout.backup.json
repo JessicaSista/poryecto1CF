@@ -1,0 +1,241 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{253970C5-4794-4D0E-AC65-24BFFE03C8A7}|OpenGL-basico\\OpenGL-basico.vcxproj|C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{253970C5-4794-4D0E-AC65-24BFFE03C8A7}|OpenGL-basico\\OpenGL-basico.vcxproj|solutionrelative:Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{253970C5-4794-4D0E-AC65-24BFFE03C8A7}|OpenGL-basico\\OpenGL-basico.vcxproj|C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{253970C5-4794-4D0E-AC65-24BFFE03C8A7}|OpenGL-basico\\OpenGL-basico.vcxproj|solutionrelative:Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{253970C5-4794-4D0E-AC65-24BFFE03C8A7}|OpenGL-basico\\OpenGL-basico.vcxproj|C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\Block.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{253970C5-4794-4D0E-AC65-24BFFE03C8A7}|OpenGL-basico\\OpenGL-basico.vcxproj|solutionrelative:Block.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{253970C5-4794-4D0E-AC65-24BFFE03C8A7}|OpenGL-basico\\OpenGL-basico.vcxproj|C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{253970C5-4794-4D0E-AC65-24BFFE03C8A7}|OpenGL-basico\\OpenGL-basico.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{253970C5-4794-4D0E-AC65-24BFFE03C8A7}|OpenGL-basico\\OpenGL-basico.vcxproj|C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\Camera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{253970C5-4794-4D0E-AC65-24BFFE03C8A7}|OpenGL-basico\\OpenGL-basico.vcxproj|solutionrelative:Camera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{253970C5-4794-4D0E-AC65-24BFFE03C8A7}|OpenGL-basico\\OpenGL-basico.vcxproj|C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\Apple.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{253970C5-4794-4D0E-AC65-24BFFE03C8A7}|OpenGL-basico\\OpenGL-basico.vcxproj|solutionrelative:Apple.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{253970C5-4794-4D0E-AC65-24BFFE03C8A7}|OpenGL-basico\\OpenGL-basico.vcxproj|C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\Block.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{253970C5-4794-4D0E-AC65-24BFFE03C8A7}|OpenGL-basico\\OpenGL-basico.vcxproj|solutionrelative:Block.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{253970C5-4794-4D0E-AC65-24BFFE03C8A7}|OpenGL-basico\\OpenGL-basico.vcxproj|C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\Camera.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{253970C5-4794-4D0E-AC65-24BFFE03C8A7}|OpenGL-basico\\OpenGL-basico.vcxproj|solutionrelative:Camera.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{253970C5-4794-4D0E-AC65-24BFFE03C8A7}|OpenGL-basico\\OpenGL-basico.vcxproj|C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\TextureLoader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{253970C5-4794-4D0E-AC65-24BFFE03C8A7}|OpenGL-basico\\OpenGL-basico.vcxproj|solutionrelative:TextureLoader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{253970C5-4794-4D0E-AC65-24BFFE03C8A7}|OpenGL-basico\\OpenGL-basico.vcxproj|C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\Worm.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{253970C5-4794-4D0E-AC65-24BFFE03C8A7}|OpenGL-basico\\OpenGL-basico.vcxproj|solutionrelative:Worm.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{253970C5-4794-4D0E-AC65-24BFFE03C8A7}|OpenGL-basico\\OpenGL-basico.vcxproj|C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\Apple.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{253970C5-4794-4D0E-AC65-24BFFE03C8A7}|OpenGL-basico\\OpenGL-basico.vcxproj|solutionrelative:Apple.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{253970C5-4794-4D0E-AC65-24BFFE03C8A7}|OpenGL-basico\\OpenGL-basico.vcxproj|C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\TextureLoader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{253970C5-4794-4D0E-AC65-24BFFE03C8A7}|OpenGL-basico\\OpenGL-basico.vcxproj|solutionrelative:TextureLoader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{253970C5-4794-4D0E-AC65-24BFFE03C8A7}|OpenGL-basico\\OpenGL-basico.vcxproj|C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\Worm.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{253970C5-4794-4D0E-AC65-24BFFE03C8A7}|OpenGL-basico\\OpenGL-basico.vcxproj|solutionrelative:Worm.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Apple.h",
+              "DocumentMoniker": "C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\Apple.h",
+              "RelativeDocumentMoniker": "Apple.h",
+              "ToolTip": "C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\Apple.h",
+              "RelativeToolTip": "Apple.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-07T00:29:52.979Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Block.h",
+              "DocumentMoniker": "C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\Block.h",
+              "RelativeDocumentMoniker": "Block.h",
+              "ToolTip": "C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\Block.h",
+              "RelativeToolTip": "Block.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-07T00:29:51.357Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Camera.h",
+              "DocumentMoniker": "C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\Camera.h",
+              "RelativeDocumentMoniker": "Camera.h",
+              "ToolTip": "C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\Camera.h",
+              "RelativeToolTip": "Camera.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-07T00:29:49.627Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Game.h",
+              "DocumentMoniker": "C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\Game.h",
+              "RelativeDocumentMoniker": "Game.h",
+              "ToolTip": "C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\Game.h",
+              "RelativeToolTip": "Game.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-07T00:29:39.572Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TextureLoader.h",
+              "DocumentMoniker": "C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\TextureLoader.h",
+              "RelativeDocumentMoniker": "TextureLoader.h",
+              "ToolTip": "C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\TextureLoader.h",
+              "RelativeToolTip": "TextureLoader.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-07T00:29:36.305Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Worm.h",
+              "DocumentMoniker": "C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\Worm.h",
+              "RelativeDocumentMoniker": "Worm.h",
+              "ToolTip": "C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\Worm.h",
+              "RelativeToolTip": "Worm.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-07T00:29:34.158Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Apple.cpp",
+              "DocumentMoniker": "C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\Apple.cpp",
+              "RelativeDocumentMoniker": "Apple.cpp",
+              "ToolTip": "C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\Apple.cpp",
+              "RelativeToolTip": "Apple.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-07T00:29:31.18Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Block.cpp",
+              "DocumentMoniker": "C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\Block.cpp",
+              "RelativeDocumentMoniker": "Block.cpp",
+              "ToolTip": "C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\Block.cpp",
+              "RelativeToolTip": "Block.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-07T00:29:26.624Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Camera.cpp",
+              "DocumentMoniker": "C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\Camera.cpp",
+              "RelativeDocumentMoniker": "Camera.cpp",
+              "ToolTip": "C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\Camera.cpp",
+              "RelativeToolTip": "Camera.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-07T00:29:24.004Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Game.cpp",
+              "DocumentMoniker": "C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\Game.cpp",
+              "RelativeDocumentMoniker": "Game.cpp",
+              "ToolTip": "C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\Game.cpp",
+              "RelativeToolTip": "Game.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-07T00:29:20.589Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\main.cpp",
+              "RelativeDocumentMoniker": "main.cpp",
+              "ToolTip": "C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\main.cpp",
+              "RelativeToolTip": "main.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-07T00:29:16.924Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "TextureLoader.cpp",
+              "DocumentMoniker": "C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\TextureLoader.cpp",
+              "RelativeDocumentMoniker": "TextureLoader.cpp",
+              "ToolTip": "C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\TextureLoader.cpp",
+              "RelativeToolTip": "TextureLoader.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-07T00:29:14.901Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Worm.cpp",
+              "DocumentMoniker": "C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\Worm.cpp",
+              "RelativeDocumentMoniker": "Worm.cpp",
+              "ToolTip": "C:\\Users\\jessi\\OneDrive\\Documentos\\Materias Facultad\\Computaci\u00F3n gr\u00E1fica\\OpenGL-basico2\\OpenGL-basico2\\Worm.cpp",
+              "RelativeToolTip": "Worm.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-07T00:29:08.566Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
