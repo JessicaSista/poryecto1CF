@@ -3,15 +3,15 @@
 #include <GL/gl.h>
 #include <GL/glu.h>
 
-Worm::Worm(float startX, float startY, float startZ) : y(startY) {
-    segments.emplace_back(startX, startZ);
+Worm::Worm(float startX, float startY, float startZ) : z(startZ) {
+    segments.emplace_back(startX, startY);
 }
 
 void Worm::draw() const {
     glColor3f(0.0f, 1.0f, 0.0f);
     for (const auto& segment : segments) {
         glPushMatrix();
-        glTranslatef(segment.first, y, segment.second);
+        glTranslatef(segment.first, segment.second, z);
         GLUquadric* quad = gluNewQuadric();
         gluSphere(quad, 0.2, 16, 16);
         gluDeleteQuadric(quad);
@@ -19,10 +19,10 @@ void Worm::draw() const {
     }
 }
 
-void Worm::move(float dx, float dz) {
+void Worm::move(float dx, float dy) {
     float newX = segments.front().first + dx;
-    float newZ = segments.front().second + dz;
-    segments.insert(segments.begin(), { newX, newZ });
+    float newY = segments.front().second - dy;
+    segments.insert(segments.begin(), { newX, newY });
     segments.pop_back();
 }
 
@@ -31,4 +31,4 @@ void Worm::grow() {
 }
 
 float Worm::getHeadX() const { return segments.front().first; }
-float Worm::getHeadZ() const { return segments.front().second; }
+float Worm::getHeadY() const { return segments.front().second; }
