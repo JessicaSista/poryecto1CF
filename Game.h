@@ -7,6 +7,9 @@
 #include "apple.h"
 #include "block.h"
 #include "camera.h"
+#include <assimp/Importer.hpp>      
+#include <assimp/scene.h> 
+#include <assimp/postprocess.h>
 
 enum GameState {
     MENU,
