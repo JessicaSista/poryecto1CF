@@ -91,57 +91,53 @@ void Game::update() {
 void Game::render() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+    // Configuración de la luz (más intensa)
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
     glEnable(GL_COLOR_MATERIAL);
     glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
 
-    GLfloat light_pos[] = { 1.0f, 2.0f, 1.0f, 0.0f };
-    GLfloat ambient[] = { 0.2f, 0.2f, 0.2f, 1.0f };
-    GLfloat diffuse[] = { 0.8f, 0.8f, 0.8f, 1.0f };
-    GLfloat specular[] = { 0.4f, 0.4f, 0.4f, 1.0f };
+    // Luz 0: Luz direccional (sol)
+    GLfloat light_pos0[] = { 0.0f, 5.0f, 0.0f, 0.0f }; // Luz direccional hacia abajo
+    GLfloat ambient0[] = { 0.3f, 0.3f, 0.3f, 1.0f };
+    GLfloat diffuse0[] = { 1.0f, 1.0f, 1.0f, 1.0f }; // Más intensa
+    GLfloat specular0[] = { 0.8f, 0.8f, 0.8f, 1.0f };
 
-    glLightfv(GL_LIGHT0, GL_POSITION, light_pos);
-    glLightfv(GL_LIGHT0, GL_AMBIENT, ambient);
-    glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse);
-    glLightfv(GL_LIGHT0, GL_SPECULAR, specular);
+    glLightfv(GL_LIGHT0, GL_POSITION, light_pos0);
+    glLightfv(GL_LIGHT0, GL_AMBIENT, ambient0);
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse0);
+    glLightfv(GL_LIGHT0, GL_SPECULAR, specular0);
 
+    // Luz 1: Luz puntual en el centro (refuerzo)
+    glEnable(GL_LIGHT1);
+    GLfloat light_pos1[] = { TAM_NIVEL / 2.0f, 3.0f, TAM_NIVEL / 2.0f, 1.0f }; // Omnidireccional
+    GLfloat ambient1[] = { 0.2f, 0.8f, 0.2f, 1.0f };
+    GLfloat diffuse1[] = { 0.5f, 1.0f, 0.5f, 1.0f };
+    GLfloat specular1[] = { 0.8f, 0.8f, 0.8f, 1.0f };
+
+    glLightfv(GL_LIGHT1, GL_POSITION, light_pos1);
+    glLightfv(GL_LIGHT1, GL_AMBIENT, ambient1);
+    glLightfv(GL_LIGHT1, GL_DIFFUSE, diffuse1);
+    glLightfv(GL_LIGHT1, GL_SPECULAR, specular1);
+
+    // Configurar atenuación para la luz puntual
+    glLightf(GL_LIGHT1, GL_CONSTANT_ATTENUATION, 0.5f);
+    glLightf(GL_LIGHT1, GL_LINEAR_ATTENUATION, 0.1f);
+    glLightf(GL_LIGHT1, GL_QUADRATIC_ATTENUATION, 0.01f);
 
     this->dibujarNivel();
     worm.draw();
 
-    // Dibujar el portal (cubo azul)
-    glPushMatrix();
-    glTranslatef(portalX, 0.5f, portalY);
-    glColor3f(0.2f, 0.2f, 1.0f);
-    float s = 0.5f;
-    glBegin(GL_QUADS);
-    // (Caras del cubo igual que antes...)
-    glVertex3f(-s, -s, s); glVertex3f(s, -s, s);
-    glVertex3f(s, s, s); glVertex3f(-s, s, s);
-
-    glVertex3f(-s, -s, -s); glVertex3f(-s, s, -s);
-    glVertex3f(s, s, -s); glVertex3f(s, -s, -s);
-
-    glVertex3f(-s, -s, -s); glVertex3f(-s, -s, s);
-    glVertex3f(-s, s, s); glVertex3f(-s, s, -s);
-
-    glVertex3f(s, -s, -s); glVertex3f(s, s, -s);
-    glVertex3f(s, s, s); glVertex3f(s, -s, s);
-
-    glVertex3f(-s, s, -s); glVertex3f(-s, s, s);
-    glVertex3f(s, s, s); glVertex3f(s, s, -s);
-
-    glVertex3f(-s, -s, -s); glVertex3f(s, -s, -s);
-    glVertex3f(s, -s, s); glVertex3f(-s, -s, s);
-    glEnd();
-    glPopMatrix();
-
-    // Deshabilitar iluminaci�n
-    glDisable(GL_COLOR_MATERIAL);
+    // Deshabilitar iluminación después de dibujar
+    glDisable(GL_LIGHT1);
     glDisable(GL_LIGHT0);
+    glDisable(GL_COLOR_MATERIAL);
     glDisable(GL_LIGHTING);
 }
+
+
+
+
 
 
 void Game::handleInput(const Uint8* keystate) {
