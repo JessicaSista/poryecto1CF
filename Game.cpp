@@ -45,8 +45,8 @@ Game::Game()
     for (int i = -5; i <= 5; ++i) {
         blocks.emplace_back(i, 0.0f, 0);
     }
-    apples.emplace_back(1.0f, 0.5f, 0.0f);
-    apples.emplace_back(2.0f, 0.5f, 0.0f);
+    apples.emplace_back(1.0f, 1.0f, 0.0f);
+    apples.emplace_back(2.0f, 1.0f, 0.0f);
 }
 
 void Game::update() {
@@ -87,9 +87,26 @@ void Game::render() const {
 
     camera.apply();
 
+    // Habilitar iluminación
+    glEnable(GL_LIGHTING);
+    glEnable(GL_LIGHT0);
+    glEnable(GL_COLOR_MATERIAL);
+    glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
+
+    GLfloat light_pos[] = { 1.0f, 2.0f, 1.0f, 0.0f };  // Luz direccional desde arriba
+    GLfloat ambient[] = { 0.2f, 0.2f, 0.2f, 1.0f };
+    GLfloat diffuse[] = { 0.8f, 0.8f, 0.8f, 1.0f };
+    GLfloat specular[] = { 0.4f, 0.4f, 0.4f, 1.0f };
+
+    glLightfv(GL_LIGHT0, GL_POSITION, light_pos);
+    glLightfv(GL_LIGHT0, GL_AMBIENT, ambient);
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse);
+    glLightfv(GL_LIGHT0, GL_SPECULAR, specular);
+
+    // Dibujar objetos del juego
     for (const auto& block : blocks) block.draw();
     for (Apple apple : apples) {
-        apple.draw(textures[0]);
+        apple.draw();
     }
     worm.draw();
 
@@ -99,28 +116,33 @@ void Game::render() const {
     glColor3f(0.2f, 0.2f, 1.0f);
     float s = 0.5f;
     glBegin(GL_QUADS);
-    // caras igual que el cubo de bloques...
-    // frente
+    // (Caras del cubo igual que antes...)
     glVertex3f(-s, -s, s); glVertex3f(s, -s, s);
     glVertex3f(s, s, s); glVertex3f(-s, s, s);
-    // atrás
+
     glVertex3f(-s, -s, -s); glVertex3f(-s, s, -s);
     glVertex3f(s, s, -s); glVertex3f(s, -s, -s);
-    // izq
+
     glVertex3f(-s, -s, -s); glVertex3f(-s, -s, s);
     glVertex3f(-s, s, s); glVertex3f(-s, s, -s);
-    // der
+
     glVertex3f(s, -s, -s); glVertex3f(s, s, -s);
     glVertex3f(s, s, s); glVertex3f(s, -s, s);
-    // arriba
+
     glVertex3f(-s, s, -s); glVertex3f(-s, s, s);
     glVertex3f(s, s, s); glVertex3f(s, s, -s);
-    // abajo
+
     glVertex3f(-s, -s, -s); glVertex3f(s, -s, -s);
     glVertex3f(s, -s, s); glVertex3f(-s, -s, s);
     glEnd();
     glPopMatrix();
+
+    // Deshabilitar iluminación
+    glDisable(GL_COLOR_MATERIAL);
+    glDisable(GL_LIGHT0);
+    glDisable(GL_LIGHTING);
 }
+
 
 void Game::handleInput(const Uint8* keystate) {
     if (state == MENU && keystate[SDL_SCANCODE_RETURN]) {
