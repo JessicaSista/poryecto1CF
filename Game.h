@@ -31,7 +31,7 @@ private:
     std::vector<Block> blocks;
     Camera camera;
     GameState state;
-    float portalX, portalZ;
+    float portalX, portalY;
 
     void renderMenu() const;
     void renderWinScreen() const;

@@ -41,7 +41,7 @@ void Game::cargarTexturas() {
 }
 
 Game::Game()
-    : worm(0.0f, 0.5f, 0.0f), state(MENU), portalX(4.0f), portalZ(0.0f) {
+    : worm(0.0f, 0.5f, 0.0f), state(MENU), portalX(4.0f), portalY(0.0f) {
     for (int i = -5; i <= 5; ++i) {
         blocks.emplace_back(i, 0.0f, 0);
     }
@@ -54,7 +54,7 @@ void Game::update() {
 
     auto it = std::remove_if(apples.begin(), apples.end(), [&](const Apple& apple) {
         float dx = apple.getX() - worm.getHeadX();
-        float dz = apple.getZ() - worm.getHeadZ();
+        float dz = apple.getY() - worm.getHeadY();
         if (dx * dx + dz * dz < 0.25f) {
             worm.grow();
             return true;
@@ -65,7 +65,7 @@ void Game::update() {
 
     // Check portal
     float dx = portalX - worm.getHeadX();
-    float dz = portalZ - worm.getHeadZ();
+    float dz = portalY - worm.getHeadY();
     if (dx * dx + dz * dz < 0.25f) {
         state = WON;
     }
@@ -95,7 +95,7 @@ void Game::render() const {
 
     // Dibujar el portal (cubo azul)
     glPushMatrix();
-    glTranslatef(portalX, 0.5f, portalZ);
+    glTranslatef(portalX, 0.5f, portalY);
     glColor3f(0.2f, 0.2f, 1.0f);
     float s = 0.5f;
     glBegin(GL_QUADS);

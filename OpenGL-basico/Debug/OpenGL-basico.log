@@ -1,14 +1,1 @@
-﻿  Apple.cpp
-  Block.cpp
-  Camera.cpp
-  Game.cpp
-  main.cpp
-C:\Users\pablo\Documents\Facultad\CompGraf\poryecto1CF\game.h(10,10): error C1083: Cannot open include file: 'assimp/Importer.hpp': No such file or directory
-  (compiling source file '../Game.cpp')
-  
-C:\Users\pablo\Documents\Facultad\CompGraf\poryecto1CF\game.h(10,10): error C1083: Cannot open include file: 'assimp/Importer.hpp': No such file or directory
-  (compiling source file '../main.cpp')
-  
-  TextureLoader.cpp
-  Worm.cpp
-  Generating Code...
+﻿  OpenGL-basico.vcxproj -> C:\Users\pablo\Documents\Facultad\CompGraf\poryecto1CF\Debug\OpenGL-basico.exe
