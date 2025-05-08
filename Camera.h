@@ -8,7 +8,7 @@ public:
     Camera() = default;
 
     // Método que aplica la transformación de la cámara usando gluLookAt
-    void apply() const;
+    void apply(float x, float y, float z) const;
 
     // Método que actualiza la posición y los ángulos de la cámara basado en los eventos del mouse
     void update(SDL_Event& event);

@@ -53,7 +53,7 @@ int main(int argc, char* argv[]) {
             glMatrixMode(GL_MODELVIEW);
             glLoadIdentity();
 
-            camera.apply();  // Aplicamos la transformación de la cámara
+            camera.apply(0, 5, 0);  // Aplicamos la transformación de la cámara
 
             game.renderMenu();
         }

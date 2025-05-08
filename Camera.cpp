@@ -11,7 +11,7 @@ float zoomFactor = 40.0f;  // Zoom inicial (distancia de la cámara)
 bool mouseDragging = false;
 int lastMouseX, lastMouseY;
 
-void Camera::apply() const {
+void Camera::apply(float x, float y, float z) const {
     gluLookAt(
         cameraX, cameraY, cameraZ,  // posición de la cámara
         0.0f, 0.0f, 0.0f,          // hacia dónde mira

@@ -40,7 +40,7 @@ void Game::cargarNivel(string nombreNivel) {
                 //nivel[i][j] = GUSANO;
                 break;
             case 'C':
-                worm = Worm(-j, i, 0);
+                worm = Worm(j, -i, 0);
                 break;
             case 'F':
                 //nivel[i][j] = FIN;
@@ -71,7 +71,7 @@ void Game::update() {
 
     auto it = std::remove_if(apples.begin(), apples.end(), [&](const Apple& apple) {
         float dx = apple.getX() - worm.getHeadX();
-        float dz = apple.getZ() - worm.getHeadY();  // o HeadZ si corresponde
+        float dz = apple.getY() - worm.getHeadY();  // o HeadZ si corresponde
         if (dx * dx + dz * dz < 0.25f) {
             worm.grow();
             return true;
@@ -159,7 +159,7 @@ void Game::moveWorm() {
 }
 
 void Game::renderMenu() const {
-    glClearColor(1.0f, 0.0f, 0.0f, 1.0f);  // rojo intenso
+    glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     // Podr�as dibujar un bot�n o texto aqu� con un quad
     // o usar SDL_ttf si agreg�s fuentes
