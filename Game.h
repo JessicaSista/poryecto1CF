@@ -20,6 +20,7 @@ enum GameState {
 class Game {
 public:
     Game();
+    void cargarTexturas();
     void update();
     void render() const;
     void handleInput(const Uint8* keystate);

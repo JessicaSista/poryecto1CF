@@ -20,6 +20,7 @@ int main(int argc, char* argv[]) {
     glClearColor(0.1f, 0.1f, 0.3f, 1.0f);  // Color de fondo
 
     Game game;
+    game.cargarTexturas();
     bool running = true;
     SDL_Event event;
 
