@@ -1,0 +1,9 @@
+enum Tile {
+	AIRE,
+	TIERRA,
+	PINCHO,
+	MANZANA,
+	GUSANO,
+	CABEZA,
+	FIN
+};

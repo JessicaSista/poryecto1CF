@@ -2,16 +2,28 @@
 #include <windows.h> 
 #include <GL/gl.h>
 
-Block::Block(float x, float y, float z) : x(x), y(y), z(z) {}
+Block::Block(float x, float y, float z, Tile tipo) : x(x), y(y), z(z), tipo(tipo) {}
 
 void Block::draw() const {
+    float r, g, b;
+    switch (tipo) {
+        case TIERRA:
+            r = 0.2;
+            g = 0.1;
+            b = 0;
+            break;
+        case PINCHO:
+            r = 0.25;
+            g = 0.25;
+            b = 0.25;
+            break;
+    }
     glPushMatrix();
     glTranslatef(x, y, z);
-    glColor3f(0.3f, 0.3f, 0.3f);
+    glBegin(GL_QUADS);
+    glColor3f(r, g, b);
 
     float s = 0.5f; // medio tamaño del cubo
-
-    glBegin(GL_QUADS);
     // Frente
     glVertex3f(-s, -s, s);
     glVertex3f(s, -s, s);
@@ -51,3 +63,4 @@ void Block::draw() const {
 float Block::getX() const { return x; }
 float Block::getY() const { return y; }
 float Block::getZ() const { return z; }
+Tile Block::getTipo() const { return tipo; }

@@ -21,8 +21,11 @@ class Game {
 public:
     Game();
     void cargarTexturas();
+    void cargarNivel(string nombreNivel);
+    void dibujarNivel();
+    void moveWorm();
     void update();
-    void render() const;
+    void render();
     void handleInput(const Uint8* keystate);
 
 private:

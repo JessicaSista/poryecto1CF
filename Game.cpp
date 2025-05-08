@@ -13,8 +13,53 @@
 
 using namespace std;
 
+const int TAM_NIVEL = 15;
+const float TAM_CUBO = 1;
+
 const int cantText = 1;
 GLuint textures[cantText];
+
+void Game::cargarNivel(string nombreNivel) {
+    ifstream nivelFile("../niveles/" + nombreNivel);
+    string linea;
+    int i = 0;
+    while (getline(nivelFile, linea)) {
+        for (int j = 0; j < TAM_NIVEL; j++) {
+            switch (linea.at(j)) {
+            case 'A':
+                break;
+            case 'T':
+                blocks.emplace_back(j,-i,0,TIERRA);
+                break;
+            case 'P':
+                blocks.emplace_back(j, -i, 0, PINCHO);
+                break;
+            case 'M':
+                apples.emplace_back(j, -i, 0);
+                break;
+            case 'G':
+                //nivel[i][j] = GUSANO;
+                break;
+            case 'C':
+                worm = Worm(-j, i, 0);
+                break;
+            case 'F':
+                //nivel[i][j] = FIN;
+                break;
+            }
+        }
+        i++;
+    }
+    nivelFile.close();
+}
+
+void Game::dibujarNivel() {
+    for (Apple apple : apples) {
+        apple.draw(textures[0]);
+    }
+    for (Block const& block : blocks) block.draw();
+    
+}
 
 void Game::cargarTexturas() {
     const char* archivos[] = {
@@ -41,12 +86,8 @@ void Game::cargarTexturas() {
 }
 
 Game::Game()
-    : worm(0.0f, 0.5f, 0.0f), state(MENU), portalX(4.0f), portalY(0.0f) {
-    for (int i = -5; i <= 5; ++i) {
-        blocks.emplace_back(i, 0.0f, 0);
-    }
-    apples.emplace_back(1.0f, 1.0f, 0.0f);
-    apples.emplace_back(2.0f, 1.0f, 0.0f);
+    :worm(0,0,0), state(MENU), portalX(4.0f), portalY(0.0f) {
+    cargarNivel("nivel1.txt");
 }
 
 void Game::update() {
@@ -71,9 +112,10 @@ void Game::update() {
     }
 }
 
-void Game::render() const {
+void Game::render() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
+    glColor3f(1, 1, 1);
 
     if (state == MENU) {
         renderMenu();
@@ -87,27 +129,7 @@ void Game::render() const {
 
     camera.apply();
 
-    // Habilitar iluminación
-    glEnable(GL_LIGHTING);
-    glEnable(GL_LIGHT0);
-    glEnable(GL_COLOR_MATERIAL);
-    glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
-
-    GLfloat light_pos[] = { 1.0f, 2.0f, 1.0f, 0.0f };  // Luz direccional desde arriba
-    GLfloat ambient[] = { 0.2f, 0.2f, 0.2f, 1.0f };
-    GLfloat diffuse[] = { 0.8f, 0.8f, 0.8f, 1.0f };
-    GLfloat specular[] = { 0.4f, 0.4f, 0.4f, 1.0f };
-
-    glLightfv(GL_LIGHT0, GL_POSITION, light_pos);
-    glLightfv(GL_LIGHT0, GL_AMBIENT, ambient);
-    glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse);
-    glLightfv(GL_LIGHT0, GL_SPECULAR, specular);
-
-    // Dibujar objetos del juego
-    for (const auto& block : blocks) block.draw();
-    for (Apple apple : apples) {
-        apple.draw();
-    }
+    this->dibujarNivel();
     worm.draw();
 
     // Dibujar el portal (cubo azul)
@@ -137,7 +159,7 @@ void Game::render() const {
     glEnd();
     glPopMatrix();
 
-    // Deshabilitar iluminación
+    // Deshabilitar iluminaciï¿½n
     glDisable(GL_COLOR_MATERIAL);
     glDisable(GL_LIGHT0);
     glDisable(GL_LIGHTING);
@@ -158,15 +180,19 @@ void Game::handleInput(const Uint8* keystate) {
     if (keystate[SDL_SCANCODE_DOWN]) worm.move(0.0f, 0.1f);
 }
 
+void Game::moveWorm() {
+
+}
+
 void Game::renderMenu() const {
     glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
-    // Podrías dibujar un botón o texto aquí con un quad
-    // o usar SDL_ttf si agregás fuentes
+    // Podrï¿½as dibujar un botï¿½n o texto aquï¿½ con un quad
+    // o usar SDL_ttf si agregï¿½s fuentes
 }
 
 void Game::renderWinScreen() const {
     glClearColor(0.0f, 0.4f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
-    // Podés dibujar un mensaje tipo "¡Ganaste!" como un fondo verde
+    // Podï¿½s dibujar un mensaje tipo "ï¿½Ganaste!" como un fondo verde
 }

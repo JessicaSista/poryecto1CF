@@ -96,6 +96,7 @@ GLuint Apple::cargarTexturaDesdeMaterial(const aiMaterial* material, const strin
 void Apple::draw() {
     glPushMatrix();
     glTranslatef(x, y, z);
+    glRotated(120, 0, 1, 0);
 
     // Rotar 90 grados alrededor del eje X para que quede "parada"
     glRotatef(-90.0f, 1.0f, 0.0f, 0.0f);
