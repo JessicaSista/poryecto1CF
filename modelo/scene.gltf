@@ -3,56 +3,42 @@
     {
       "bufferView": 2,
       "componentType": 5126,
-      "count": 18085,
+      "count": 1725,
       "max": [
-        0.46320709586143494,
-        0.4671071171760559,
-        0.47089093923568726
+        4.306873798370361,
+        9.426581382751465,
+        4.306873321533203
       ],
       "min": [
-        -0.4658595621585846,
-        -0.4665573239326477,
-        -0.4758267104625702
+        -4.306873321533203,
+        0.04410313069820404,
+        -4.306873321533203
       ],
       "type": "VEC3"
     },
     {
       "bufferView": 2,
-      "byteOffset": 217020,
+      "byteOffset": 20700,
       "componentType": 5126,
-      "count": 18085,
+      "count": 1725,
       "type": "VEC3"
     },
     {
       "bufferView": 3,
       "componentType": 5126,
-      "count": 18085,
+      "count": 1725,
       "type": "VEC4"
     },
     {
       "bufferView": 1,
       "componentType": 5126,
-      "count": 18085,
-      "type": "VEC2"
-    },
-    {
-      "bufferView": 1,
-      "byteOffset": 144680,
-      "componentType": 5126,
-      "count": 18085,
-      "type": "VEC2"
-    },
-    {
-      "bufferView": 1,
-      "byteOffset": 289360,
-      "componentType": 5126,
-      "count": 18085,
+      "count": 1725,
       "type": "VEC2"
     },
     {
       "bufferView": 0,
       "componentType": 5125,
-      "count": 93642,
+      "count": 7776,
       "type": "SCALAR"
     }
   ],
@@ -63,52 +49,52 @@
   "bufferViews": [
     {
       "buffer": 0,
-      "byteLength": 374568,
+      "byteLength": 31104,
       "target": 34963
     },
     {
       "buffer": 0,
-      "byteLength": 434040,
-      "byteOffset": 374568,
+      "byteLength": 13800,
+      "byteOffset": 31104,
       "byteStride": 8,
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 434040,
-      "byteOffset": 808608,
+      "byteLength": 41400,
+      "byteOffset": 44904,
       "byteStride": 12,
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 289360,
-      "byteOffset": 1242648,
+      "byteLength": 27600,
+      "byteOffset": 86304,
       "byteStride": 16,
       "target": 34962
     }
   ],
   "buffers": [
     {
-      "byteLength": 1532008,
+      "byteLength": 113904,
       "uri": "scene.bin"
     }
   ],
   "images": [
     {
-      "uri": "textures/tripo_mat_ff908d53-70fb-419e-97e1-e113fce7f4e1_baseColor.png"
+      "uri": "textures/Scene_-_Root_baseColor.png"
     },
     {
-      "uri": "textures/tripo_mat_ff908d53-70fb-419e-97e1-e113fce7f4e1_metallicRoughness.png"
+      "uri": "textures/Scene_-_Root_metallicRoughness.png"
     },
     {
-      "uri": "textures/tripo_mat_ff908d53-70fb-419e-97e1-e113fce7f4e1_normal.png"
+      "uri": "textures/Scene_-_Root_normal.png"
     }
   ],
   "materials": [
     {
       "doubleSided": true,
-      "name": "tripo_mat_ff908d53-70fb-419e-97e1-e113fce7f4e1",
+      "name": "Scene_-_Root",
       "normalTexture": {
         "index": 2
       },
@@ -116,6 +102,7 @@
         "baseColorTexture": {
           "index": 0
         },
+        "metallicFactor": 0.0,
         "metallicRoughnessTexture": {
           "index": 1
         }
@@ -124,18 +111,16 @@
   ],
   "meshes": [
     {
-      "name": "tripo_node_ff908d53-70fb-419e-97e1-e113fce7f4e1_tripo_mat_ff908d53-70fb-419e-97e1-e113fce7f4e1_0",
+      "name": "apple__0",
       "primitives": [
         {
           "attributes": {
             "NORMAL": 1,
             "POSITION": 0,
             "TANGENT": 2,
-            "TEXCOORD_0": 3,
-            "TEXCOORD_1": 4,
-            "TEXCOORD_2": 5
+            "TEXCOORD_0": 3
           },
-          "indices": 6,
+          "indices": 4,
           "material": 0,
           "mode": 4
         }
@@ -189,7 +174,7 @@
         0.0,
         1.0
       ],
-      "name": "tripo_convert_ff908d53_70fb_419e_97e1_e113fce7f4e1.fbx"
+      "name": "dbbc08a39fb343619562ecda31863f14.fbx"
     },
     {
       "children": [
@@ -202,28 +187,28 @@
         4
       ],
       "matrix": [
-        100.0,
+        1.0,
         0.0,
         0.0,
         0.0,
         0.0,
-        -4.371139006309477e-06,
-        -99.9999999999999,
+        0.9999999999999971,
+        -7.549789415861594e-08,
         0.0,
         0.0,
-        99.9999999999999,
-        -4.371139006309477e-06,
+        7.549789415861594e-08,
+        0.9999999999999971,
         0.0,
         0.0,
         0.0,
-        0.0,
+        -1.9023534036932688e-07,
         1.0
       ],
-      "name": "tripo_node_ff908d53-70fb-419e-97e1-e113fce7f4e1"
+      "name": "apple"
     },
     {
       "mesh": 0,
-      "name": "tripo_node_ff908d53-70fb-419e-97e1-e113fce7f4e1_tripo_mat_ff908d53-70fb-419e-97e1-e113fce7f4e1_0"
+      "name": "apple__0"
     }
   ],
   "samplers": [

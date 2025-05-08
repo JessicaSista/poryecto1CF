@@ -20,13 +20,16 @@ enum GameState {
 class Game {
 public:
     Game();
-    void cargarTexturas();
     void cargarNivel(string nombreNivel);
     void dibujarNivel();
     void moveWorm();
     void update();
     void render();
+    void renderMenu() const;
+    void renderWinScreen() const;
     void handleInput(const Uint8* keystate);
+    GameState getState() const { return state; }
+    void setState(GameState newState) { state = newState; }
 
 private:
     Worm worm;
@@ -36,8 +39,7 @@ private:
     GameState state;
     float portalX, portalY;
 
-    void renderMenu() const;
-    void renderWinScreen() const;
+    
 };
 
 #endif

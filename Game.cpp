@@ -17,7 +17,6 @@ const int TAM_NIVEL = 15;
 const float TAM_CUBO = 1;
 
 const int cantText = 1;
-GLuint textures[cantText];
 
 void Game::cargarNivel(string nombreNivel) {
     ifstream nivelFile("../niveles/" + nombreNivel);
@@ -55,35 +54,12 @@ void Game::cargarNivel(string nombreNivel) {
 
 void Game::dibujarNivel() {
     for (Apple apple : apples) {
-        apple.draw(textures[0]);
+        apple.draw(); 
     }
     for (Block const& block : blocks) block.draw();
-    
 }
 
-void Game::cargarTexturas() {
-    const char* archivos[] = {
-        "../texturas/manzana.png"
-    };
 
-    for (int i = 0; i < cantText; i++) {
-        const char* rutaArchivo = archivos[i];
-        FREE_IMAGE_FORMAT fif = FreeImage_GetFIFFromFilename(rutaArchivo);
-        FIBITMAP* bitmap = FreeImage_Load(fif, rutaArchivo);
-        bitmap = FreeImage_ConvertTo24Bits(bitmap);
-        int w = FreeImage_GetWidth(bitmap);
-        int h = FreeImage_GetHeight(bitmap);
-        void* datos = FreeImage_GetBits(bitmap);
-
-        glBindTexture(GL_TEXTURE_2D, textures[i]);
-        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, w, h, 0, GL_BGR, GL_UNSIGNED_BYTE, datos);
-        glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
-    }
-}
 
 Game::Game()
     :worm(0,0,0), state(MENU), portalX(4.0f), portalY(0.0f) {
@@ -95,7 +71,7 @@ void Game::update() {
 
     auto it = std::remove_if(apples.begin(), apples.end(), [&](const Apple& apple) {
         float dx = apple.getX() - worm.getHeadX();
-        float dz = apple.getY() - worm.getHeadY();
+        float dz = apple.getZ() - worm.getHeadY();  // o HeadZ si corresponde
         if (dx * dx + dz * dz < 0.25f) {
             worm.grow();
             return true;
@@ -114,20 +90,22 @@ void Game::update() {
 
 void Game::render() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glLoadIdentity();
-    glColor3f(1, 1, 1);
 
-    if (state == MENU) {
-        renderMenu();
-        return;
-    }
+    glEnable(GL_LIGHTING);
+    glEnable(GL_LIGHT0);
+    glEnable(GL_COLOR_MATERIAL);
+    glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
 
-    if (state == WON) {
-        renderWinScreen();
-        return;
-    }
+    GLfloat light_pos[] = { 1.0f, 2.0f, 1.0f, 0.0f };
+    GLfloat ambient[] = { 0.2f, 0.2f, 0.2f, 1.0f };
+    GLfloat diffuse[] = { 0.8f, 0.8f, 0.8f, 1.0f };
+    GLfloat specular[] = { 0.4f, 0.4f, 0.4f, 1.0f };
 
-    camera.apply();
+    glLightfv(GL_LIGHT0, GL_POSITION, light_pos);
+    glLightfv(GL_LIGHT0, GL_AMBIENT, ambient);
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse);
+    glLightfv(GL_LIGHT0, GL_SPECULAR, specular);
+
 
     this->dibujarNivel();
     worm.draw();
@@ -167,10 +145,6 @@ void Game::render() {
 
 
 void Game::handleInput(const Uint8* keystate) {
-    if (state == MENU && keystate[SDL_SCANCODE_RETURN]) {
-        state = PLAYING;
-        return;
-    }
 
     if (state != PLAYING) return;
 
@@ -185,7 +159,7 @@ void Game::moveWorm() {
 }
 
 void Game::renderMenu() const {
-    glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
+    glClearColor(1.0f, 0.0f, 0.0f, 1.0f);  // rojo intenso
     glClear(GL_COLOR_BUFFER_BIT);
     // Podr�as dibujar un bot�n o texto aqu� con un quad
     // o usar SDL_ttf si agreg�s fuentes

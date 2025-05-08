@@ -26,7 +26,6 @@ private:
     float x, y, z;
     vector<Vertice> modelo;
     GLuint texturaId;
-
     GLuint cargarTexturaDesdeMaterial(const aiMaterial* material, const string& directorioBase);
 };
 

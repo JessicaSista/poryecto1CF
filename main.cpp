@@ -2,7 +2,10 @@
 #include <SDL.h>
 #include <GL/gl.h>
 #include <GL/glu.h>
+#include <iostream>
 #include "game.h"
+
+#include "Camera.h"
 
 int main(int argc, char* argv[]) {
     SDL_Init(SDL_INIT_VIDEO);
@@ -20,19 +23,44 @@ int main(int argc, char* argv[]) {
     glClearColor(0.1f, 0.1f, 0.3f, 1.0f);  // Color de fondo
 
     Game game;
-    game.cargarTexturas();
+    Camera camera;  // Creamos un objeto de cámara
     bool running = true;
     SDL_Event event;
 
     while (running) {
         while (SDL_PollEvent(&event)) {
-            if (event.type == SDL_QUIT) running = false;
+            if (event.type == SDL_QUIT) {
+                running = false;
+            }
+            else if (event.type == SDL_KEYDOWN) {
+                std::cout << "Key down: " << SDL_GetScancodeName(event.key.keysym.scancode) << std::endl;
+
+                if (event.key.keysym.scancode == SDL_SCANCODE_RETURN && game.getState() == MENU) {
+                    std::cout << "ENTER pressed, changing state to PLAYING" << std::endl;
+                    game.setState(PLAYING);
+                    std::cout << "state: PLAYING" << std::endl;
+                }
+            }
+
+            camera.update(event);  // Actualizamos la cámara con los eventos
         }
 
         const Uint8* keystate = SDL_GetKeyboardState(NULL);
         game.handleInput(keystate);
         game.update();
-        game.render();
+
+        if (game.getState() == MENU) {
+            glMatrixMode(GL_MODELVIEW);
+            glLoadIdentity();
+
+            camera.apply();  // Aplicamos la transformación de la cámara
+
+            game.renderMenu();
+        }
+        else if (game.getState() == WON)
+            game.renderWinScreen();
+        else
+            game.render();
 
         SDL_GL_SwapWindow(window);
         SDL_Delay(16);
