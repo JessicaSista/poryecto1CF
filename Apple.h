@@ -1,17 +1,15 @@
 #ifndef APPLE_H
 #define APPLE_H
+
 #include <windows.h>
-#include "Vertice.h"
 #include <GL/gl.h>
 #include <GL/glu.h>
 #include <string>
 #include <vector>
-#include <conio.h>
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
-
-using namespace std;
+#include "Vertice.h"
 
 class Apple {
 public:
@@ -20,13 +18,19 @@ public:
     float getX() const;
     float getY() const;
     float getZ() const;
-    void cargarModelo();
 
 private:
+    struct SubMesh {
+        GLuint texBaseColor;
+        std::vector<Vertice> vertices;
+    };
+
     float x, y, z;
-    vector<Vertice> modelo;
-    GLuint texturaId;
-    GLuint cargarTexturaDesdeMaterial(const aiMaterial* material, const string& directorioBase);
+    std::vector<SubMesh> subMeshes;
+
+    void cargarModelo();
+    void procesarNodo(const aiNode* node, const aiScene* scene, const std::string& baseDir);
+    GLuint cargarTextura(const aiMaterial* material, aiTextureType type, const std::string& baseDir);
 };
 
 #endif // APPLE_H

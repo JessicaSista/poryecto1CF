@@ -53,7 +53,7 @@ int main(int argc, char* argv[]) {
             glMatrixMode(GL_MODELVIEW);
             glLoadIdentity();
 
-            camera.apply(0, 5, 0);  // Aplicamos la transformación de la cámara
+            camera.apply(0, 0, 0);  // Aplicamos la transformación de la cámara (mirando al origen de la escena)
 
             game.renderMenu();
         }
@@ -61,6 +61,7 @@ int main(int argc, char* argv[]) {
             game.renderWinScreen();
         else
             game.render();
+
 
         SDL_GL_SwapWindow(window);
         SDL_Delay(16);
