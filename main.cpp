@@ -12,7 +12,7 @@ int main(int argc, char* argv[]) {
     SDL_Window* window = SDL_CreateWindow("Worm Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, SDL_WINDOW_OPENGL);
     SDL_GLContext context = SDL_GL_CreateContext(window);
 
-    // Set viewport y proyección
+    // Set viewport y proyecciï¿½n
     glViewport(0, 0, 800, 600);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
@@ -23,7 +23,7 @@ int main(int argc, char* argv[]) {
     glClearColor(0.1f, 0.1f, 0.3f, 1.0f);  // Color de fondo
 
     Game game;
-    Camera camera;  // Creamos un objeto de cámara
+    Camera camera;  // Creamos un objeto de cï¿½mara
     bool running = true;
     SDL_Event event;
 
@@ -38,29 +38,29 @@ int main(int argc, char* argv[]) {
                 if (event.key.keysym.scancode == SDL_SCANCODE_RETURN && game.getState() == MENU) {
                     std::cout << "ENTER pressed, changing state to PLAYING" << std::endl;
                     game.setState(PLAYING);
+                    camera.apply(15 / 2.f, -15/2.f + 3, 0);
                     std::cout << "state: PLAYING" << std::endl;
                 }
+                game.handleInput(event.key.keysym.sym);
             }
 
-            camera.update(event);  // Actualizamos la cámara con los eventos
+            camera.update(event);  // Actualizamos la cï¿½mara con los eventos
         }
-
-        const Uint8* keystate = SDL_GetKeyboardState(NULL);
-        game.handleInput(keystate);
         game.update();
 
         if (game.getState() == MENU) {
             glMatrixMode(GL_MODELVIEW);
             glLoadIdentity();
 
-            camera.apply(0, 0, 0);  // Aplicamos la transformación de la cámara (mirando al origen de la escena)
+           // camera.apply(0.f, 0, 0);  // Aplicamos la transformaciï¿½n de la cï¿½mara (mirando al origen de la escena)
 
             game.renderMenu();
         }
         else if (game.getState() == WON)
             game.renderWinScreen();
-        else
+        else {
             game.render();
+        }
 
 
         SDL_GL_SwapWindow(window);

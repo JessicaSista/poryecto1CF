@@ -3,25 +3,23 @@
 #include <GL/gl.h>
 #include <GL/glu.h>
 #include <SDL.h>
-#include <cmath>  // Para las funciones trigonométricas
+#include <cmath>  // Para las funciones trigonomï¿½tricas
 
-float cameraX = 0.0f, cameraY = 5.0f, cameraZ = 40.0f;  // Posición inicial de la cámara
-float cameraAngleX = 0.0f, cameraAngleY = 0.0f;  // Ángulos de rotación de la cámara
-float zoomFactor = 40.0f;  // Zoom inicial (distancia de la cámara)
+
 
 bool mouseDragging = false;
 int lastMouseX, lastMouseY;
 
-void Camera::apply(float x, float y, float z) const {
+void Camera::apply(float x, float y, float z) {
     gluLookAt(
-        cameraX, cameraY, cameraZ,  // Posición de la cámara
-        x, y, z,                    // Hacia dónde mira (la cámara se dirige hacia el centro)
-        0.0f, 1.0f, 0.0f           // Vectores de orientación (arriba)
+        cameraX, cameraY, cameraZ,  // Posiciï¿½n de la cï¿½mara
+        x, y, z,                    // Hacia dï¿½nde mira (la cï¿½mara se dirige hacia el centro)
+        0.0f, 1.0f, 0.0f           // Vectores de orientaciï¿½n (arriba)
     );
 }
 
 void Camera::update(SDL_Event& event) {
-    // Detectar si se está arrastrando el mouse
+    // Detectar si se estï¿½ arrastrando el mouse
     if (event.type == SDL_MOUSEBUTTONDOWN) {
         if (event.button.button == SDL_BUTTON_LEFT) {
             mouseDragging = true;
@@ -36,7 +34,7 @@ void Camera::update(SDL_Event& event) {
     }
 
     if (event.type == SDL_MOUSEMOTION && mouseDragging) {
-        // Cambiar los ángulos de la cámara basados en el movimiento del mouse
+        // Cambiar los ï¿½ngulos de la cï¿½mara basados en el movimiento del mouse
         int deltaX = event.motion.x - lastMouseX;
         int deltaY = event.motion.y - lastMouseY;
 
@@ -46,7 +44,7 @@ void Camera::update(SDL_Event& event) {
         lastMouseX = event.motion.x;
         lastMouseY = event.motion.y;
 
-        // Limitamos el ángulo Y para evitar que la cámara se voltee completamente
+        // Limitamos el ï¿½ngulo Y para evitar que la cï¿½mara se voltee completamente
         if (cameraAngleY > 89.0f) cameraAngleY = 89.0f;
         if (cameraAngleY < -89.0f) cameraAngleY = -89.0f;
     }
@@ -60,12 +58,14 @@ void Camera::update(SDL_Event& event) {
             zoomFactor += 2.0f;
         }
 
-        if (zoomFactor < 10.0f) zoomFactor = 10.0f;  // Limitar el zoom mínimo
-        if (zoomFactor > 100.0f) zoomFactor = 100.0f;  // Limitar el zoom máximo
+        if (zoomFactor < 10.0f) zoomFactor = 10.0f;  // Limitar el zoom mï¿½nimo
+        if (zoomFactor > 100.0f) zoomFactor = 100.0f;  // Limitar el zoom mï¿½ximo
     }
 
-    // Actualizamos la posición de la cámara en base a los ángulos de la cámara
-    cameraX = zoomFactor * cos(cameraAngleY * 3.14159f / 180.0f) * sin(cameraAngleX * 3.14159f / 180.0f);
+    // Actualizamos la posiciï¿½n de la cï¿½mara en base a los ï¿½ngulos de la cï¿½mara
+    /*cameraX = zoomFactor * cos(cameraAngleY * 3.14159f / 180.0f) * sin(cameraAngleX * 3.14159f / 180.0f);
     cameraY = zoomFactor * sin(cameraAngleY * 3.14159f / 180.0f);
-    cameraZ = zoomFactor * cos(cameraAngleY * 3.14159f / 180.0f) * cos(cameraAngleX * 3.14159f / 180.0f);
+    cameraZ = zoomFactor * cos(cameraAngleY * 3.14159f / 180.0f) * cos(cameraAngleX * 3.14159f / 180.0f);*/
+    //Comente esto xq estaba rompiendo la camara
+    //Si era algo q tenia q pasar y no entendi perdon
 }

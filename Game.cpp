@@ -67,6 +67,24 @@ void Game::update() {
     if (dx * dx + dz * dz < 0.25f) {
         state = WON;
     }
+
+    applyGravity();
+}
+
+void Game::applyGravity() {
+    for (std::pair<float, float> segment : worm.getSegments()) {
+        for (Block const& block : blocks) {
+            if (block.getY() == segment.second - 1 && block.getX() == segment.first) {
+                return;
+            } 
+        }
+        for (Apple const& apple : apples) {
+            if (apple.getY() == segment.second - 1 && apple.getX() == segment.first) {
+                return;
+            }
+        }
+    }
+    worm.drop();
 }
 
 void Game::render() {
@@ -132,12 +150,81 @@ void Game::render() {
     glDisable(GL_LIGHTING);
 }
 
-void Game::handleInput(const Uint8* keystate) {
+
+void Game::handleInput(SDL_Keycode key) {
+
     if (state != PLAYING) return;
-    if (keystate[SDL_SCANCODE_RIGHT]) worm.move(0.1f,  0.0f);
-    if (keystate[SDL_SCANCODE_LEFT ]) worm.move(-0.1f, 0.0f);
-    if (keystate[SDL_SCANCODE_UP   ]) worm.move(0.0f, -0.1f);
-    if (keystate[SDL_SCANCODE_DOWN ]) worm.move(0.0f,  0.1f);
+    switch (key) {
+        case SDLK_UP:
+            moveWorm(UP);
+            break;
+        case SDLK_DOWN:
+            moveWorm(DOWN);
+            break;
+        case SDLK_LEFT:
+            moveWorm(LEFT);
+            break;
+        case SDLK_RIGHT:
+            moveWorm(RIGHT);
+            break;
+    }
+}
+
+bool Game::isValidMovement(Direction dir) {
+    int x = worm.getHeadX();
+    int y = worm.getHeadY();
+
+    for (Block const& block : blocks) {
+        switch (dir) {
+            case UP:
+                if (block.getX() == x && block.getY() == y + 1) return false;
+                break;
+            case DOWN:
+                if (block.getX() == x && block.getY() == y - 1) return false;
+                break;
+            case LEFT:
+                if (block.getX() == x - 1 && block.getY() == y ) return false;
+                break;
+            case RIGHT:
+                if (block.getX() == x + 1 && block.getY() == y) return false;
+                break;
+        }
+    }
+    for (std::pair<float,float> const& segment : worm.getSegments()) {
+        switch (dir) {
+        case UP:
+            if (segment.first == x && segment.second == y + 1) return false;
+            break;
+        case DOWN:
+            if (segment.first == x && segment.second == y - 1) return false;
+            break;
+        case LEFT:
+            if (segment.first == x - 1 && segment.second == y) return false;
+            break;
+        case RIGHT:
+            if (segment.first == x + 1 && segment.second == y) return false;
+            break;
+        }
+    }
+}
+
+void Game::moveWorm(Direction dir) {
+    if (isValidMovement(dir)) {
+        switch (dir) {
+        case UP:
+            worm.move(0, 1);
+            break;
+        case DOWN:
+            worm.move(0, -1);
+            break;
+        case LEFT:
+            worm.move(-1, 0);
+            break;
+        case RIGHT:
+            worm.move(1, 0);
+            break;
+        }
+    }
 }
 
 void Game::renderMenu() const {

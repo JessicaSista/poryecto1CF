@@ -15,17 +15,26 @@ enum GameState {
     WON
 };
 
+enum Direction {
+    LEFT,
+    RIGHT,
+    UP,
+    DOWN
+};
+
 class Game {
 public:
     Game();
     void cargarNivel(const std::string& nombreNivel);
     void dibujarNivel();
-    void moveWorm();
+    void moveWorm(Direction dir);
+    bool isValidMovement(Direction dir);
     void update();
+    void applyGravity();
     void render();
     void renderMenu() const;
     void renderWinScreen() const;
-    void handleInput(const Uint8* keystate);
+    void handleInput(SDL_Keycode key);
     GameState getState() const { return state; }
     void setState(GameState newState) { state = newState; }
 
