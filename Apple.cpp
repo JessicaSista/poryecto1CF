@@ -1,6 +1,5 @@
 #include "apple.h"
 #include "FreeImage.h"
-#include <windows.h> 
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
@@ -22,7 +21,7 @@ void Apple::cargarModelo() {
     const std::string baseDir = "../modelo/";
 
     const aiScene* scene = importer.ReadFile(modelPath,
-        aiProcess_Triangulate | aiProcess_FlipUVs);
+        aiProcess_Triangulate);
     if (!scene || !scene->HasMeshes()) {
         std::cerr << "Error cargando modelo: "
             << importer.GetErrorString() << std::endl;
@@ -38,10 +37,8 @@ void Apple::procesarNodo(const aiNode* node, const aiScene* scene, const std::st
         const aiMesh* mesh = scene->mMeshes[node->mMeshes[i]];
         const aiMaterial* mat = scene->mMaterials[mesh->mMaterialIndex];
 
-        // Cargar texture baseColor
         GLuint texID = cargarTextura(mat, aiTextureType_DIFFUSE, baseDir);
 
-        // Extraer vértices de esta mesh
         std::vector<Vertice> verts;
         verts.reserve(mesh->mNumFaces * 3);
         for (unsigned int f = 0; f < mesh->mNumFaces; ++f) {
@@ -69,21 +66,17 @@ void Apple::procesarNodo(const aiNode* node, const aiScene* scene, const std::st
         subMeshes.push_back({ texID, std::move(verts) });
     }
 
-    // Recursion para hijos
     for (unsigned int i = 0; i < node->mNumChildren; ++i) {
         procesarNodo(node->mChildren[i], scene, baseDir);
     }
 }
 
 GLuint Apple::cargarTextura(const aiMaterial* material, aiTextureType type, const std::string& baseDir) {
-    if (material->GetTextureCount(type) == 0)
-        return 0;
+    if (material->GetTextureCount(type) == 0) return 0;
 
     aiString path;
     material->GetTexture(type, 0, &path);
-    if (path.length == 0) {
-        return 0;
-    }
+    if (path.length == 0) return 0;
 
     std::string fullPath = baseDir + path.C_Str();
     std::ifstream file(fullPath);
@@ -120,6 +113,10 @@ GLuint Apple::cargarTextura(const aiMaterial* material, aiTextureType type, cons
 void Apple::draw() {
     glPushMatrix();
     glTranslatef(x, y, z);
+    // Aplicar rotación para inclinar la manzana hacia adelante
+    glRotatef(30.0f, 1.0f, 0.0f, 0.0f);
+    // Escalar la manzana para achicarla
+    glScalef(0.1f, 0.1f, 0.1f);
 
     glDisable(GL_LIGHTING);
     glEnable(GL_TEXTURE_2D);

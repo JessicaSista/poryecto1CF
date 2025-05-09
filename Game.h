@@ -1,15 +1,13 @@
 #ifndef GAME_H
 #define GAME_H
-#include <windows.h> 
-#include <SDL.h>
+
+#include <string>
 #include <vector>
+#include <SDL.h>
 #include "worm.h"
 #include "apple.h"
 #include "block.h"
 #include "camera.h"
-#include <assimp/Importer.hpp>      
-#include <assimp/scene.h> 
-#include <assimp/postprocess.h>
 
 enum GameState {
     MENU,
@@ -20,7 +18,7 @@ enum GameState {
 class Game {
 public:
     Game();
-    void cargarNivel(string nombreNivel);
+    void cargarNivel(const std::string& nombreNivel);
     void dibujarNivel();
     void moveWorm();
     void update();
@@ -38,8 +36,6 @@ private:
     Camera camera;
     GameState state;
     float portalX, portalY;
-
-    
 };
 
-#endif
+#endif // GAME_H
